@@ -60,12 +60,12 @@
 
 
     <main :class="[
-      'w-full rounded-xl ',
-      'lg:overflow-hidden lg:grid  lg:grid-cols-5',//lg
-      'overflow-hidden grid  grid-cols-1',
+      'w-full  rounded-xl grid overflow-hidden',
+      ' lg:grid   lg:grid-cols-5',//lg
+      ' grid-cols-1',
     ]" >
-      <highchart class="p-5 bg-secondary-100  col-start-1 col-end-4   sm:border-b-2 lg:border-r-2 border-neutral-700" :options="revenue_chart_options" />
-      <div class="lg:col-start-4 lg:col-end-6   grid grid-rows-2 " >
+      <highchart class="p-5 bg-secondary-100  lg:col-start-1 lg:col-end-4  lg:border-r-2  border-neutral-700" :options="revenue_chart_options" />
+      <div class="lg:col-start-4 lg:col-end-6   grid lg:grid-rows-2 " >
           <highchart class="p-5 bg-secondary-100 row-start-1 row-end-2 border-b-2 border-neutral-700 " :options="profit_chart_options" />
           <highchart  class="p-5 bg-secondary-100 row-start-2 row-end-3":options="sessions_chart_options" />
       </div>
