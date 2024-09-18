@@ -45,20 +45,22 @@
 </template>
 
 <script setup>
+const route = useRoute()
 const links = ref([
     {
       text : 'Dashboard',
       icon : 'material-symbols:home',
       sublinks : [
-        {
-          text : 'All pages',
-          active : true,
-        },
+        
         {
           text : 'Reports',
+          active : route.fullPath.includes('/reports'),
+          to : '/reports'
         },
         {
           text : 'Products',
+          active : route.fullPath.includes('/products'),
+          to : '/products'
         }
       ],
       active : true,
@@ -120,6 +122,16 @@ const closeMenu = () => {
 const changeLocation =()=>{
     closeMenu()
 };
+watchEffect(() => {
+  links.value.forEach(link => {
+    if (link.sublinks) {
+      link.sublinks.forEach(sublink => {
+        sublink.active = route.fullPath.includes(sublink.to)
+      })
+    }
+    link.active = link.sublinks.some(sublink => sublink.active)
+  })
+})
 </script>
 
 <style>
